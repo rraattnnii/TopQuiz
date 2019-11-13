@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView refTextePrincipal; // @+id/activity_main_texte_principal
     private EditText refInput;
-    private Button refBtnJouer, getRefBtnRaz;
-    private int compteur;
+    private Button refBtnJouer;
+
 
 
     @Override
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         // initialisation
         refBtnJouer.setEnabled(false);
-        getRefBtnRaz.setEnabled(false);
+        // getRefBtnRaz.setEnabled(false);   // apres v1
 
 
 
@@ -58,12 +58,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         refBtnJouer.setOnClickListener(new View.OnClickListener() {
-            private String pluriel='';
             @Override
             public void onClick(View v) {
 
-                compteur++;
-                getRefBtnRaz.setEnabled(true);
 
 
             }
