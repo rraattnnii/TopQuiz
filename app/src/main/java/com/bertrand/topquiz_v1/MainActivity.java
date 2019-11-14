@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     refBtnJouer.setEnabled(false);
+                    compteur = 0;
+                    refTexteCompteur.setText(String.valueOf(compteur) + "clic");
+                    refBtnRaz.setEnabled(false);
                 }
             }
             @Override
@@ -74,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 refBtnJouer.setEnabled(false);
                 refBtnRaz.setEnabled(false);
                 refInput.setText("");
+                compteur = 0;
+                refTexteCompteur.setText( "0 clic");
+
             }
         });
 
