@@ -11,11 +11,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView refTextePrincipal; // @+id/activity_main_texte_principal
+    private TextView refTextePrincipal, refTexteCompteur; // @+id/activity_main_texte_principal
     private EditText refInput;
-    private Button refBtnJouer;
-
-
+    private Button refBtnJouer, refBtnRaz;
+    private int compteur=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
 
         // création des Balises
         refTextePrincipal = (TextView) findViewById(R.id.activity_main_texte_principal);
+        refTexteCompteur = (TextView) findViewById(R.id.activity_main_texte_compteur);
         refInput = (EditText) findViewById(R.id.activity_main_input);
         refBtnJouer = (Button) findViewById(R.id.activity_main_btn_jouer);
-
+        refBtnRaz = (Button) findViewById(R.id.activity_main_btn_raz);
 
         // initialisation
         refBtnJouer.setEnabled(false);
-        // getRefBtnRaz.setEnabled(false);   // apres v1
-
+        refBtnRaz.setEnabled(false);
 
 
         // création des listener
@@ -50,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
                     refBtnJouer.setEnabled(false);
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -60,9 +58,22 @@ public class MainActivity extends AppCompatActivity {
         refBtnJouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 compteur++;
+                refBtnRaz.setEnabled(true);
+                if(compteur <= 1){
+                    refTexteCompteur.setText(String.valueOf(compteur) + "clic");
+                }else {
+                    refTexteCompteur.setText(String.valueOf(compteur)  + " clics");
+                }
+            }
+        });
 
-
-
+        refBtnRaz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                refBtnJouer.setEnabled(false);
+                refBtnRaz.setEnabled(false);
+                refInput.setText("");
             }
         });
 
